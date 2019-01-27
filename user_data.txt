@@ -1,0 +1,8 @@
+#! /bin/bash
+
+apt-get -y update
+adduser --disabled-password --gecos "" neo
+echo Ca93rn|cu5! | passwd neo --stdin
+usermod -aG sudo neo
+cp -pr /root/.ssh /home/meo
+chown -R neo:neo /home/neo/.ssh
