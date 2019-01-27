@@ -1,8 +1,10 @@
-#! /bin/bash
+#cloud-config
+users:
+  - name: neo
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyyc2x6EO4rkLZnyLCeGQuJxfk2Nwrg9SZS63OduOaIo3TortCoFNA+LfdTIiKDocPMHM5C1JKt1dcIDKYvrx96L1yVwdfobM2ItL9oyALluiyeR7TIc5mLWZzSGRV7V3E+Yn1Gx7wSbo8A3eOqWq5oy/GyDql+cAMc6LSNmJUvyJ8hr+DmZ94deZJ0JsuNmJgsSEbfRfcq41h73m32qIhqBkqT+hfvCqXzoc34M6g3VuxTrAFVkSSxSXKSifeSLTx2mzGboMAmb1Kbp3h5zhrrLlRkfJrRfiHXI9P2GTVARmshvssDZSEAAgM/53DArhzcu080JiK1PizLSV5VgMJ taylor@maschine
 
-apt-get -y update
-adduser --disabled-password --gecos "" neo
-echo Ca93rn|cu5! | passwd neo --stdin
-usermod -aG sudo neo
-cp -pr /root/.ssh /home/meo
-chown -R neo:neo /home/neo/.ssh
+package_upgrade: true
